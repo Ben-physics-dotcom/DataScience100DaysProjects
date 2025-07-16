@@ -44,5 +44,4 @@ In this repo i put my daily data science challenges.
 - Days 91-100:
   - Final Project Ideas:
     - Weather prediction
-    - ESA project
     - Animal Project
