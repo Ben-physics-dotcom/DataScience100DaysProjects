@@ -2,7 +2,7 @@
 
 In this repo i put my daily data science challenges.
 
-## Ideas:
+## Table of Contents
 
 - [Days 1-10:](https://github.com/Ben-physics-dotcom/DataScience100DaysProjects/tree/main/D_1_10)
   - Data Cleaning
@@ -45,3 +45,7 @@ In this repo i put my daily data science challenges.
   - Final Project Ideas:
     - Weather prediction
     - Animal Project
+
+## Used Data
+
+- uncleaned Data from [Kaggle](https://www.kaggle.com/datasets/ehtishamsadiq/uncleaned-laptop-price-dataset)
