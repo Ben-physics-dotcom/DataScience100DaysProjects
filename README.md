@@ -8,10 +8,10 @@ In this repo i put my daily data science challenges.
   - [Data Cleaning](https://github.com/Ben-physics-dotcom/DataScience100DaysProjects/blob/main/D_1_10/Data_Cleaning.ipynb)
   - [Exploratory Data Analysis (EDA)](https://github.com/Ben-physics-dotcom/DataScience100DaysProjects/blob/main/D_1_10/EDA.ipynb)
   - [Data Visualtization (plt, sns)](https://github.com/Ben-physics-dotcom/DataScience100DaysProjects/blob/main/D_1_10/Data_vis.ipynb)
-- Days 11-20:
-  - Probability
-  - Descriptive and Inferential Statistics
-  - Hypothesis Testing
+- [Days 11-20](https://github.com/Ben-physics-dotcom/DataScience100DaysProjects/tree/main/D_11_20):
+  - [Probability](https://github.com/Ben-physics-dotcom/DataScience100DaysProjects/blob/main/D_11_20/Probability.ipynb)
+  - [Descriptive and Inferential Statistics](https://github.com/Ben-physics-dotcom/DataScience100DaysProjects/blob/main/D_11_20/DIS.ipynb)
+  - [Hypothesis Testing](https://github.com/Ben-physics-dotcom/DataScience100DaysProjects/blob/main/D_11_20/DIS.ipynb)
 - Days 21-30:
   - Regression Models
   - Classification Models
