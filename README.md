@@ -12,10 +12,10 @@ In this repo i put my daily data science challenges.
   - [Probability](https://github.com/Ben-physics-dotcom/DataScience100DaysProjects/blob/main/D_11_20/Probability.ipynb)
   - [Descriptive and Inferential Statistics](https://github.com/Ben-physics-dotcom/DataScience100DaysProjects/blob/main/D_11_20/DIS.ipynb)
   - [Hypothesis Testing](https://github.com/Ben-physics-dotcom/DataScience100DaysProjects/blob/main/D_11_20/DIS.ipynb)
-- Days 21-30:
-  - Regression Models
-  - Classification Models
-  - Evaluation Metrics
+- [Days 21-30](https://github.com/Ben-physics-dotcom/DataScience100DaysProjects/tree/main/D_21_30):
+  - [Regression Models](https://github.com/Ben-physics-dotcom/DataScience100DaysProjects/blob/main/D_21_30/Regression_models.ipynb)
+  - [Classification Models](https://github.com/Ben-physics-dotcom/DataScience100DaysProjects/blob/main/D_21_30/Classification_models.ipynb)
+  - [Evaluation Metrics](https://github.com/Ben-physics-dotcom/DataScience100DaysProjects/blob/main/D_21_30/Evaluation_metrics.ipynb)
 - Days 31-40:
   - Decision Trees
   - Random Forest and XGBoost
