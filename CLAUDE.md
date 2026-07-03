@@ -26,21 +26,28 @@ suite — the deliverable is the notebooks themselves.
 
 ## Architecture: shared code and cross-notebook wiring
 
-**`Imports_Functions.ipynb`** (repo root) is the shared library for every day-folder notebook. It is
-not imported as a Python module — subsequent notebooks pull it in via the Jupyter magic:
+Shared code used to live in a single `Imports_Functions.ipynb` notebook that other notebooks pulled in
+via `%run ../Imports_Functions.ipynb`. That notebook has been deleted and its contents split into
+plain root-level Python modules:
 
-```python
-%run ../Imports_Functions.ipynb
-```
+- `Imports.py` — the single entry point: pulls in all third-party libs (`numpy`, `pandas`, `sklearn`,
+  `scipy.stats`, etc.) and re-exports the helpers from the two modules below
+  (`from regression_functions import linreg, results_func`, `from saving_functions import
+  saving_results, loading_results`).
+- `regression_functions.py` — `linreg(...)` and `results_func(...)` (see "Results dict pattern" below).
+- `saving_functions.py` — `saving_results(results)` / `loading_results()`, pickling to/from
+  `../Results/regressions.pkl`.
 
-(see the first cell of `D_21_30/Regression_models.ipynb`). This executes the notebook in place, so
-all its imports (`numpy`, `pandas`, `sklearn`, `scipy.stats`, etc.) and function definitions become
-available in the calling notebook's namespace. When adding a new shared helper, add it to
-`Imports_Functions.ipynb`, not to an individual day notebook — otherwise it won't be visible to other
-notebooks that also `%run` it.
+**This migration is in progress and currently inconsistent**: `D_21_30/Regression_models.ipynb` still
+has `%run ../Imports_Functions.ipynb` as its first cell, which will now fail since that file no longer
+exists. Before running or editing that notebook, check whether it has been updated to import from
+`Imports.py` instead (e.g. via `sys.path` manipulation plus `from Imports import *`, since `Imports.py`
+sits at the repo root while notebooks live one level down in `D_XX_YY/`). When adding a new shared
+helper, add it to the appropriate `.py` module (not inline in a day notebook, and not back into a
+notebook-based shared file) so every notebook importing `Imports` picks it up.
 
 Because notebooks live one directory below the root (`D_XX_YY/notebook.ipynb`), all relative paths
-inside notebooks are written relative to that subfolder, e.g. `../Imports_Functions.ipynb`,
+inside notebooks/modules are written relative to that subfolder, e.g.
 `../D_1_10/Data/laptopData_cleaned.csv`, `../Results/regressions.pkl`. Keep this `../`-relative
 convention when adding new notebooks or new data/result paths.
 
@@ -48,7 +55,8 @@ convention when adding new notebooks or new data/result paths.
 
 Modeling notebooks (currently `D_21_30/Regression_models.ipynb`) accumulate experiment results into a
 single `results: dict` keyed by a descriptive `col_name` (e.g. `'lin_reg_Price_vs_Weight'`), rather
-than persisting one model per file. Key helpers in `Imports_Functions.ipynb`:
+than persisting one model per file. Key helpers, now in `regression_functions.py` /
+`saving_functions.py`:
 
 - `results_func(data, results, params)` — dispatches on `deepcopy(model).__name__` to know how to fit
   and score a model (`linregress`, `OLS`, `LinearRegression`, `PolynomialFeatures` are currently
