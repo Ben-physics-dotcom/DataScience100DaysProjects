@@ -10,6 +10,10 @@ import sys
 import shutil
 import re
 
+# Windows can't shell out to detect physical core count (WinError 2), so joblib/loky
+# falls back with a warning; pin it to logical core count upfront to silence it.
+os.environ.setdefault("LOKY_MAX_CPU_COUNT", str(os.cpu_count()))
+
 # Kaggle
 import kaggle
 from kaggle.api.kaggle_api_extended import KaggleApi
@@ -17,7 +21,7 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 # Machine Learning Libraries
 from scipy.stats import linregress
 
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score, root_mean_squared_error
 from sklearn.preprocessing import PolynomialFeatures
